@@ -3,7 +3,7 @@
 '''
 Author: 560130
 Date: 2021-12-27 22:51:46
-LastEditTime: 2021-12-27 23:28:53
+LastEditTime: 2021-12-27 23:34:16
 LastEditors: 560130
 Description: 用来保存Class note 和 Class notebook类
 FilePath: /pythonitem/object-orientedProgrammingPy/chapter2/parent_directory/notebook.py
@@ -17,7 +17,8 @@ last_id = 0
 
 class Note:
     '''
-    description:Represent a note in the notebook. Match against a string in searches and store tags for each note. 
+    description:Represent a note in the notebook. Match
+                against a string in searches and store tags for each note.
     param {*}
     return {*}
     '''
@@ -56,7 +57,7 @@ class Notebook:
 
     def __init__(self) -> None:
         '''
-        description:Initialize a notebook with an empty list. 
+        description:Initialize a notebook with an empty list.
         param {*}
         return {*}
         '''
@@ -64,7 +65,7 @@ class Notebook:
 
     def new_note(self, memo, tags=''):
         '''
-        description:Create a new note and add it to the list. 
+        description:Create a new note and add it to the list.
         param {*}
         return {*}
         '''
@@ -73,7 +74,7 @@ class Notebook:
     def modify_memo(self, note_id, memo):
         '''
         description:Find the note with the given id and change its
-                    memo to the given value. 
+                    memo to the given value.
         param {*}
         return {*}
         '''
@@ -85,7 +86,7 @@ class Notebook:
     def modify_tags(self, note_id, tags):
         '''
         description:Find the note with the given id and change its
-                    tags to the given value. 
+                    tags to the given value.
         param {*}
         return {*}
         '''
@@ -96,8 +97,7 @@ class Notebook:
 
     def search(self, filter):
         '''
-        description:Find all notes that match the given filter string 
-        param {*}
+        description:Find all notes that match the given filter string
         return {*}
         '''
         return [note for note in self.notes if note.match(filter)]
