@@ -3,7 +3,7 @@
 '''
 Author: 560130
 Date: 2022-03-07 11:34:22
-LastEditTime: 2022-03-07 17:28:26
+LastEditTime: 2022-03-08 10:22:05
 LastEditors: 560130
 Description: 使用感知机
 FilePath: /PythonItem/ML/Perceptron/UsePerceptron.py
@@ -39,7 +39,7 @@ plt.ylabel('sepal length')  # y轴说明
 plt.legend(loc='upper left')  # 说明位置
 plt.show()  # 画图
 
-ppn = Perceptron(0.9, 10)
+ppn = Perceptron(0.1, 10)
 ppn.fit(X, y)
 plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
 plt.xlabel("Epoches")
