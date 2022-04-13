@@ -3,7 +3,7 @@
 '''
 Author: 560130
 Date: 2022-04-12 18:49:46
-LastEditTime: 2022-04-12 19:22:51
+LastEditTime: 2022-04-13 11:33:22
 LastEditors: 560130
 Description: 一个闹铃,用来练习阅读。“3-2-1”方法;输入第一次用时，自动开始第二次和第三次计时
 FilePath: /PythonItem/testDoc/readBook.py
