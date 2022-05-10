@@ -2,14 +2,32 @@
 # coding=utf-8
 '''
 Author: 560130
-Date: 2022-03-30 15:55:25
-LastEditTime: 2022-05-01 15:44:28
+Date: 2022-05-03 11:38:11
+LastEditTime: 2022-05-03 11:38:11
 LastEditors: 560130
 Description: 
-FilePath: /pythonitem/test/test_nonlinear_optimization.py
+FilePath: /pythonitem/hgy/test1.py
 '''
+
+
 from scipy.optimize import minimize
+import pandas as pd
 import numpy as np
+
+cool_machine = pd.read_excel(
+    '/home/gree/MyDocument/MyWorkSpace/pythonitem/hgy/data/XLS 工作表.xls',
+    sheet_name='Sheet1')
+cool_out = pd.read_excel(
+    '/home/gree/MyDocument/MyWorkSpace/pythonitem/hgy/data/XLS 工作表.xls',
+    sheet_name='Sheet2')
+
+R = cool_machine[["one_R","two_R","three_R"]].values
+Pch = cool_machine[["one_Pch","two_Pch","three_Pch"]].values
+Pchw = cool_machine[["one_Pchw","two_Pchw","three_Pchw"]].values
+Pcw = cool_machine[["one_Pcw","two_Pcw","three_Pcw"]].values
+Pcwt = cool_machine[["one_Pcwt","two_Pcwt","three_Pcwt"]].values
+param0 = cool_machine[["param1","param2","param3"]].values
+Out = cool_out["peng_Pch"].values
 
 
 # 目标函数
@@ -19,72 +37,31 @@ def Fobj(x):
     param {x}:x_1->x[0], x_2->x[1], x_3->x[2], x_4->x[3]
     return {F(x_1,x_2,x_3,x_4,x_5)}
     '''
-    return (5 * x[0] - 100)**2 + (6 * x[1] + 7 * x[2] -
-                                  200)**2 + (8 * x[3] + 9 * x[4] - 300)**2
+    y = ((Pch + Pchw + Pcw + Pcwt) * x)**2 
+    out = sum((y[:12].sum(axis=1) + y[12:].sum(axis=1) - Out)**2)
+    return out
 
+
+#初始化
+x0 = np.zeros(24,3)
+for i in range(24):
+    for j in range(3):
+        if R[i,j] != 0:
+            x0[i,j] = 1
 
 #限制条件函数
-def cons0(x):  # 不等式约束 f(x) >= 0
+def cons(x):  # 不等式约束 f(x) >= 0
     '''
     description: x_1 >= 1 --> x_1 -1 >=0
     param {x}:x_1->x[0], x_2->x[1], x_3->x[2], x_4->x[3]
     return {cons >= 0}
     '''
-    return x[0] - 1
+    if R[0,0] != 0
+
+    return x[0*0] - 1
 
 
-def cons1(x):
-    '''
-    description: x_2 >= 1 --> x_2 -1 >=0
-    param {*}
-    return {*}
-    '''
-    return x[1] - 1
 
-
-def cons2(x):
-    '''
-    description:x_3 >= 1 --> x_3 -1 >=0 
-    param {*}
-    return {*}
-    '''
-    return x[2] - 1
-
-
-def cons3(x):
-    '''
-    description: x_4 >=1 --> x_4 -1 >=0
-    param {*}
-    return {*}
-    '''
-    return x[3] - 1
-
-
-def cons4(x):
-    '''
-    description: x_5 >=1 --> x_5 -1 >=0 
-    param {*}
-    return {*}
-    '''
-    return x[4] - 1
-
-
-def cons5(x):
-    '''
-    description: x_2 + x_3 <= 30 --> 30 - x_2 - x_3 >= 0
-    param {*}
-    return {*}
-    '''
-    return 30 - x[1] - x[2]
-
-
-def cons6(x):
-    '''
-    description: x_4 + x_5 <= 21 --> 31 - x_4 - x_5 >= 0
-    param {*}
-    return {*}
-    '''
-    return 31 - x[3] - x[4]
 
 
 # 设置初始猜测值
@@ -126,3 +103,9 @@ res = minimize(Fobj, x0, method='SLSQP', constraints=cons)
 print(res.fun)
 print(res.success)
 print(res.x)
+
+
+
+
+
+

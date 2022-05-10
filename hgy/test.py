@@ -2,6 +2,17 @@
 # coding=utf-8
 '''
 Author: 560130
+Date: 2022-05-01 15:47:35
+LastEditTime: 2022-05-01 16:00:00
+LastEditors: 560130
+Description: 
+FilePath: /pythonitem/hgy/test.py
+'''
+
+#!/usr/bin/env python
+# coding=utf-8
+'''
+Author: 560130
 Date: 2022-03-30 15:55:25
 LastEditTime: 2022-05-01 15:44:28
 LastEditors: 560130

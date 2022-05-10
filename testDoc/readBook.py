@@ -3,10 +3,10 @@
 '''
 Author: 560130
 Date: 2022-04-12 18:49:46
-LastEditTime: 2022-04-12 19:22:51
+LastEditTime: 2022-04-12 22:04:07
 LastEditors: 560130
 Description: 一个闹铃,用来练习阅读。“3-2-1”方法;输入第一次用时，自动开始第二次和第三次计时
-FilePath: /PythonItem/testDoc/readBook.py
+FilePath: /pythonitem/testDoc/readBook.py
 '''
 
 from pydub import AudioSegment  # 导入此模块实现声音播放功能
@@ -21,14 +21,15 @@ class Alarm:
         param {*}
         return {*}
         '''
-        self.sound1 = AudioSegment.from_file(
-            "/home/gree/wfDocument/gree/wfDocument/其他/练习项目/PythonItem/testDoc/bensound-ukulele.mp3",
-            format="mp3")
+        #"/home/gree/wfDocument/gree/wfDocument/其他/练习项目/PythonItem/testDoc/bensound-ukulele.mp3",
+        self.sound1 = AudioSegment.from_mp3(
+            "/home/gree/MyDocument/MyWorkSpace/pythonitem/testDoc/bensound-ukulele.mp3")
+        print("-----------",self.sound1)
         pass
 
     def set_time(self):
         '''
-        description:设定时长，设定“3”的时长，自动生产“2”和“1” 
+        description:设定时长,设定“3”的时长,自动生产“2”和“1”
         param {无}
         return {三个时长}
         '''
@@ -66,4 +67,5 @@ class Alarm:
 
 if __name__ == "__main__":
     a = Alarm()
+    print(a.sound1)
     a.bell()
