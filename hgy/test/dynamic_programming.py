@@ -3,7 +3,7 @@
 '''
 Author: 560130
 Date: 2022-05-09 09:05:43
-LastEditTime: 2022-05-11 22:04:14
+LastEditTime: 2022-05-11 22:04:34
 LastEditors: 560130
 Description: 直接导入H列数据,从H列开始,重新计算之后的列，并且完成动态规划
              本文档所有计算都使用numpy包
